@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Take Photo
+	</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/jquery.mobile-1.3.2.min.css">
+	<link rel="stylesheet" href="css/index.css">
+	<link href="css/photoswipe.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/main.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/jquery.min.js"></script>
+	<script src="js/jquery.mobile-1.3.2.min.js"></script>
+	<script type="text/javascript" src="js/klass.min.js"></script>
+	<script type="text/javascript" src="js/code.photoswipe-3.0.5.min.js"></script>
+	<style>
+		.ui-body-c,
+		.ui-overlay-c {
+			background: #000;
+			color: #FFFFFF;
+		}
+	</style>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+	<div data-role="page" id="home" data-title="imageFlip Demo" data-add-back-btn="true" data-back-btn-text="חזור">
+		<div data-role="header" id="header" data-position="fixed">
+			<h1>&nbsp;</h1>
+		</div>
+		<div id="MainContent" style="background: transparent;">
+			<ul id="Gallery" class="gallery">
+			</ul>
+		</div>
+		<div id="sheet0parent" style="display:none;position:fixed;z-index:2000;left:0px;top:0px;width:100%;">
+			<div id="sheet0" style="display:block;z-index:2000;position:relative;width:220px;margin:auto;margin-top:220px;">
+			    <a data-role="button" data-icon="shareIconFB" href="#" class="shareFB">Facebook</a>
+			    <a data-role="button" data-icon="shareIconTW" href="#" class="shareTW">Twitter</a>
+			    <a data-role="button" data-icon="shareIconPI" href="#" class="sharePI">Pinterest</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

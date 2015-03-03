@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Take Photo</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/main.js"></script>
+  </head>
+  <body>
+	<div data-role="page" id="chooseLocal_imagePage"  data-backbtn="false">
+		<div data-role="header" position="fixed">
+			<h1>תגובה</h1>
+		</div>
+		<div data-role="content" class="center-wrapper">
+			<img style="display:block;width:220px;" class="smallLocalImage" src="" />
+			<br/>
+			<br/>
+			<form id="messageForm">
+			<div data-role="fieldcontain">
+			  <textarea name="comment" id="comment" placeholder="הוסף תגובה..." style="width:100%; direction:rtl;"></textarea>
+			</div>
+			</form>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<style type="text/css">
+				.whatsappButton{
+					border-radius:0;
+					width:50%;
+					height: 49px;
+					border:0;
+				}
+				.ui-footer .whatsappButton span{
+					padding-top: 16px;
+				}
+			</style>
+			<a id="submitlocalbtn" class="whatsappButton" style="float:right;">שלח</a>
+			<a class="submitbackbtn whatsappButton" style="float:right;">בטל</a>
+		</div>
+	</div>
+  </body>
+</html>

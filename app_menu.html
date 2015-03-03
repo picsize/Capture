@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>Take Photo</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/jquery.mobile-1.3.2.min.css">
+	<link rel="stylesheet" href="css/index.css">
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/jquery.min.js"></script>
+	<script src="js/jquery.mobile-1.3.2.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/main.js"></script>
+	<style>
+	.ui-body-c, .ui-overlay-c { background-color:#000; color:#FFFFFF; background:url(img/rekaN640x960.png); background-repeat::repeat-x; }
+	.ui-bar-a {background-image:none !important; border:none !important; }
+	a img {border:none;}
+	</style>
+  </head>
+  <body>
+  	<div data-role="page" id="app_menuPage">
+		<div data-role="content" class="center-wrapper">
+		  	<img src="img/logo.png" alt="logo" style="margin-top:20px;" /><br/>
+			<h2 style="margin-top:25px;color:black;">האירוע של <span id="cname"></span></h2>
+			<div style="position: absolute;top: 50%;left: 50%;-webkit-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">
+				<a href="#" onClick="capturePhoto();"><img src="img/1b.png" alt="1" /></a> <br/>
+				<div id="btnSelectLocalContainer" style="margin-top:15px;">
+					<a href="#" id="btnSelectLocal"><img src="img/2b.png" alt="2" /></a>
+				</div>
+				<div id="progressSelected" style="background-color: #eee;color: #222;border-radius: 5px;margin-top: 5px;"></div><br/>
+				<a href="#" onClick="OpenServerImages();" style="margin-top:15px;"><img src="img/3b.png" /></a>
+				<img style="display:none;width:90px;height:120px;" id="smallImage" src="" />
+				<img style="display:none;" id="largeImage" src="" />
+				<div id="plu_container"></div>
+			</div>
+		</div>
+		<div data-role="footer" data-position="fixed"> <h1>052-5100011 ISTUDIO  פותח על ידי</h1> </div>
+	</div>
+  </body>
+</html>

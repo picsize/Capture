@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Capture Photo</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+	<link rel="stylesheet" href="css/jquery.mobile-1.3.2.min.css">
+	<link rel="stylesheet" href="css/jquery.mobile.actionsheet.css">
+	<link rel="stylesheet" href="css/index.css">
+	<link href="css/photoswipe.css" type="text/css" rel="stylesheet" />
+	<link rel="stylesheet" href="css/jquery.plupload.queue.css" type="text/css" media="screen" />
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.mobile-1.3.2.min.js"></script>
+	<script src="js/jquery.mobile.actionsheet.js"></script>
+	<script type="text/javascript" src="js/klass.min.js"></script>
+	<script type="text/javascript" src="js/code.photoswipe-3.0.5.min.js"></script>
+
+	<!-- Third party script for BrowserPlus runtime (Google Gears included in Gears runtime now) -->
+	<script type="text/javascript" src="http://bp.yahooapis.com/2.4.21/browserplus-min.js"></script>
+	<!-- Load plupload and all it's runtimes and finally the jQuery queue widget -->
+	<script src="js/moxie.js"></script>
+	<script type="text/javascript" src="js/plupload.full.min1.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/main.js"></script>
+	<style>
+		.center-wrapper {
+			text-align: center;
+		}
+
+			.center-wrapper * {
+				margin: 0 auto;
+			}
+
+		.ui-body-c, .ui-overlay-c {
+			background-color: #000;
+			color: #FFFFFF;
+			background: url(img/rekaN640x960.png);
+			background-repeat:: repeat-x;
+		}
+
+		h5 {
+			color: #000000 !important;
+		}
+
+		.ui-bar-a {
+			background-image: none !important;
+			border: none !important;
+		}
+
+		a img {
+			border: none;
+		}
+
+		.ui-btn-active {
+			color: #CCCCCC !important;
+			background: none !important;
+			background-color: #eee !important;
+			text-shadow: 0 /*{a-bup-shadow-x}*/
+			1px /*{a-bup-shadow-y}*/
+			0 /*{a-bup-shadow-radius}*/
+			#ffffff /*{a-bup-shadow-color}*/;
+		}
+
+		input {
+			text-align: center;
+		}
+		#sheet0 a, #sheet0 span{
+			display:block;
+		}
+	</style>
+</head>
+<body onload="init()">
+	<div id="launcherPage" data-role="page">
+		<!-- I'm just here waiting for deviceReady -->
+	</div>
+
+	<div data-role="page" id="loginPage">
+
+		<div data-role="content" class="center-wrapper">
+			<img src="img/logo.png" alt="logo" style="margin-top:20px;" />
+
+			<div data-role="content" style="position: absolute;top: 55%;left: 50%;-webkit-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">
+				<form id="loginForm" style="width:65%;">
+					<input type="text" name="c_code" id="c_code" placeholder="הכנס קוד אירוע" style="text-align:center; margin:0 auto; padding-left:15px;">
+					<input type="submit" value='כניסה לאירוע' id="submitButton" class="my-button" style="margin-top:25px;">
+				</form>
+				
+			</div>
+		</div>
+		<div data-role="footer" data-position="fixed"> <h1>052-5100011 ISTUDIO  פותח על ידי</h1> </div>
+
+	</div>
+</body>
+</html>

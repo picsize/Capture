@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Take Photo</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/main.js"></script>
+  </head>
+  <body>
+	<div data-role="page" id="choose_imagePage"  data-backbtn="false">
+		<div data-role="header" position="fixed">
+			<h1>תגובה</h1>
+		</div>
+		<div data-role="content" class="center-wrapper">
+			<img style="display:block;width:220px;" class="smallImage" src="" />
+			<br/>
+			<br/>
+			<form id="messageForm">
+			<div data-role="fieldcontain">
+			  <textarea name="comment" id="comment" placeholder="הוסף תגובה..." style="width:100%; direction:rtl;"></textarea>
+			</div>
+			</form>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<style type="text/css">
+				.whatsappButton{
+					border-radius:0;
+					width:50%;
+					height: 49px;
+					border:0;
+				}
+				.ui-footer .whatsappButton span{
+					padding-top: 16px;
+				}
+			</style>
+			<a data-role="actionsheet" id="submitbtn" class="whatsappButton" style="float:right;">שתף</a>
+			<div>
+			    <a data-role="button" href="#" class="shareNormal">שליחה רגילה</a>
+			    <a data-role="button" data-icon="shareIconFB" href="#" class="shareFB">Facebook</a>
+			    <a data-role="button" data-icon="shareIconTW" href="#" class="shareTW">Twitter</a>
+			    <a data-role="button" data-icon="shareIconPI" href="#" class="sharePI">Pinterest</a>
+			</div>
+			<a class="submitbackbtn whatsappButton" style="float:right;">בטל</a>
+		</div>
+	</div>
+  </body>
+</html>
