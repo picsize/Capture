@@ -1,8 +1,8 @@
-<?xml version='1.0' encoding='utf-8'?>
-<widget id="il.co.chiklive.chiklive" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>ציק צאק לייב</name>
+﻿<?xml version='1.0' encoding='utf-8'?>
+<widget id="il.co.everybody" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>כולם צלמים</name>
     <description>
-        ציק צאק לייב - Click and upload images
+        כולם צלמים - Click and upload images
     </description>
     <author email="ootizlab@gmail.com" href="http://vividapps.in">
         Vivid Apps

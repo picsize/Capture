@@ -1,4 +1,4 @@
-// JavaScript Document
+﻿// JavaScript Document
 function init() {
 	document.addEventListener("deviceready", deviceReady, true);
 	delete init;
@@ -9,6 +9,11 @@ function checkPreAuth() {
 	var form = $("#loginForm");
 	if (window.localStorage["c_code"] != undefined) {
 		$("#c_code", form).val(window.localStorage["c_code"]);
+	}
+	if (window.localStorage["username"] != undefined) {
+		$("#username", form).val(window.localStorage["username"]);
+	}
+	if(window.localStorage["c_code"] != undefined && window.localStorage["username"] != undefined){
 		handleLogin();
 	}
 }
@@ -18,16 +23,18 @@ function handleLogin() {
 	//disable the button so we can't resubmit while we wait
 	$("#submitButton", form).attr("disabled", "disabled");
 	var c = $("#c_code", form).val();
-	if (c != '') {
+	var username = $("#username", form).val();
+	if (c != '' && username != '') {
 		$.mobile.loading('show', {
 			theme: "b"
 		});
-		$.post("http://www.chiklive.co.il/authentication/check_code.php", { c_code: c }, function (res) {
+		$.post("http://www.chiklive.co.il/authentication/check_code.php", { c_code: c, username: username }, function (res) {
 			if (res == 'false') {
 				//store
 				navigator.notification.alert("הקוד לא קיים, נסה שוב", function () { }, " ");
 			} else {
 				window.localStorage["c_code"] = c;
+				window.localStorage["username"] = username;
 				window.localStorage["c_name"] = res;
 				$.mobile.changePage("app_menu.html");
 			}
@@ -40,7 +47,12 @@ function handleLogin() {
 			$("#submitButton").removeAttr("disabled");
 		});
 	} else {
-		navigator.notification.alert("הכנס קוד אירוע", function () { }, " ");
+		if(username == ''){
+			navigator.notification.alert("הכנס שם אירוע", function () { }, " ");
+		}
+		else{
+			navigator.notification.alert("הכנס קוד אירוע", function () { }, " ");
+		}
 		$("#submitButton").parent().removeClass("ui-btn-active");
 		$("#submitButton").removeAttr("disabled");
 	}
@@ -134,6 +146,12 @@ function deviceReady() {
 	$("#loginPage").on("pageinit", function () {
 		console.log("pageinit run");
 		$("#loginForm").on("submit", handleLogin);
+		$("input, select, textarea").bind("focus",function() {
+			$(".istudio_footer").hide()
+		});
+		$("input, select, textarea").bind("blur",function() {
+			$(".istudio_footer").show()
+		});
 		checkPreAuth();
 	});
 	$.mobile.changePage("#loginPage");
@@ -160,15 +178,15 @@ $(document).delegate("#app_menuPage", "pageshow", function () {
 	$("#cname").html(temp_name);
 
 	var c = window.localStorage["c_code"];
-	var isAndroid = /android/i.test(navigator.userAgent.toLowerCase());
-	if (isAndroid){
+	//var isAndroid = /android/i.test(navigator.userAgent.toLowerCase());
+	//if (isAndroid){
 		var uploading = false;
 		$("#btnSelectLocal").on("click", function(){
 			var options = {
 		    	quality: 75,
 		    	correctOrientation: true,
 		    	mediaType: Camera.MediaType.PICTURE,
-				encodingType: Camera.EncodingType.PNG,
+				encodingType: Camera.EncodingType.JPEG,
 				destinationType: navigator.camera.DestinationType.FILE_URI,
 				sourceType: navigator.camera.PictureSourceType.SAVEDPHOTOALBUM,
 				targetWidth: 1280,
@@ -194,7 +212,7 @@ $(document).delegate("#app_menuPage", "pageshow", function () {
 			    }, options);
 			}
 		});
-	}
+	/*}
 	else{
 		console.log("ios");
 		var maxfiles = 5;
@@ -238,7 +256,7 @@ $(document).delegate("#app_menuPage", "pageshow", function () {
 	        }
 	    });
 		uploader.init();
-	}
+	}*/
 });
 
 ///////////////// upload photo function
@@ -259,7 +277,6 @@ function uploadPhoto() {
 	options.headers = {
 		Connection: "close"
 	};
-
 	var params = new Object();
 
 	options.params = params;
@@ -360,7 +377,7 @@ function OpenServerImages() {
 				//--------------------------------------------------------------------
 				// 3) Update html content
 				//--------------------------------------------------------------------
-				$('#Gallery').append('<li><a href="' + data[i].imageURL + '"><img src="' + data[i].thumbURL + '" alt="' + data[i].image_msg + '" /></a><h5>' + data[i].image_msg + '</h5></li>');
+				$('#Gallery').append('<li><a href="' + data[i].imageURL + '"><img src="' + data[i].thumbURL + '" alt="' + data[i].image_msg + '" /></a></li>');
 				//$('#output').html("<b>id: </b>"+id+"<b> url: </b>"+url); //Set output element html
 				//recommend reading up on jquery selectors they are awesome 
 				// http://api.jquery.com/category/selectors/
@@ -417,7 +434,7 @@ function capturePhoto() {
 	// Take picture using device camera and retrieve image as base64-encoded string
 	navigator.camera.getPicture(onPhotoDataSuccess, onFail, {
 		quality: 75,
-		//encodingType: Camera.EncodingType.PNG,
+		encodingType: Camera.EncodingType.JPEG,
 		destinationType: destinationType.FILE_URI,
 		targetWidth: 1280,
 		targetHeight: 1280,
@@ -487,7 +504,7 @@ $(document).delegate('#local_images_page', 'pageshow', function () {
 	// Client side form validation
 	$('form').submit(function (e) {
 		var uploader = $('#uploader').pluploadQueue();
-
+		console.log("form submit");
 		// Files in queue upload them first
 		if (uploader.files.length > 0) {
 			// When all files are uploaded submit form
@@ -528,7 +545,12 @@ function exitAppPopup() {
           'האם אתה בטוח שאתה רוצה לצאת?'
         , function (button) {
         	if (button == 2) {
-        		if (window.localStorage["c_code"]) { window.localStorage.removeItem("c_code"); }
+        		if (window.localStorage["c_code"]) { 
+        			window.localStorage.removeItem("c_code");
+        		}
+        		if (window.localStorage["username"]) { 
+        			window.localStorage.removeItem("username");
+        		}
         		navigator.app.exitApp();
         	}
         }

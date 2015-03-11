@@ -22,7 +22,7 @@
 	<script src="js/moxie.js"></script>
 	<script type="text/javascript" src="js/plupload.full.min1.js"></script>
 	<script type="text/javascript" charset="utf-8" src="js/main.js"></script>
-	<style>
+<style>
 		.center-wrapper {
 			text-align: center;
 		}
@@ -32,10 +32,11 @@
 			}
 
 		.ui-body-c, .ui-overlay-c {
-			background-color: #000;
+			background-color: #FFFFFF;
 			color: #FFFFFF;
-			background: url(img/rekaN640x960.png);
-			background-repeat:: repeat-x;
+			
+			
+			
 		}
 
 		h5 {
@@ -64,7 +65,7 @@
 		input {
 			text-align: center;
 		}
-		#sheet0 a, #sheet0 span{
+		#sheet0 a, #sheet0 span{ 
 			display:block;
 		}
 	</style>
@@ -74,20 +75,22 @@
 		<!-- I'm just here waiting for deviceReady -->
 	</div>
 
-	<div data-role="page" id="loginPage">
+	
+	<div data-role="page" id="loginPage" style="background: url(img/rekaN640x9601.png);">
 
 		<div data-role="content" class="center-wrapper">
-			<img src="img/logo.png" alt="logo" style="margin-top:20px;" />
+			 <img src="img/logo1.png" alt="logo" style="margin-top:30px;width:250px;height:91px;" />
 
-			<div data-role="content" style="position: absolute;top: 55%;left: 50%;-webkit-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">
-				<form id="loginForm" style="width:65%;">
-					<input type="text" name="c_code" id="c_code" placeholder="הכנס קוד אירוע" style="text-align:center; margin:0 auto; padding-left:15px;">
+			<div data-role="content" style="position: absolute;margin-top:60px;left: 50%;-webkit-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">
+				<form id="loginForm" style="width:165x;">
+					
+					<input type="text" name="c_code" id="c_code" placeholder="הכנס קוד אירוע" style="text-align:center; margin:0 auto; padding-left:15px;color:#000000;font-weight: bold;">
 					<input type="submit" value='כניסה לאירוע' id="submitButton" class="my-button" style="margin-top:25px;">
 				</form>
 				
 			</div>
 		</div>
-		<div data-role="footer" data-position="fixed"> <h1>052-5100011 ISTUDIO  פותח על ידי</h1> </div>
+		<div data-role="footer" data-position="fixed" class="istudio_footer"> <h1>052-5100011 ISTUDIO  פותח על ידי</h1> </div>
 
 	</div>
 </body>

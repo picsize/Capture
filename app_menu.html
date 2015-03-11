@@ -16,17 +16,18 @@
 	a img {border:none;}
 	</style>
   </head>
-  <body>
-  	<div data-role="page" id="app_menuPage">
+   <body>
+  	<div data-role="page" id="app_menuPage" style="background: url(img/rekaN640x960.png);">
 		<div data-role="content" class="center-wrapper">
-		  	<img src="img/logo.png" alt="logo" style="margin-top:20px;" /><br/>
-			<h2 style="margin-top:25px;color:black;">האירוע של <span id="cname"></span></h2>
+		  	 <img src="img/logo.png" alt="logo" style="margin-top:10px;width:250px;height:91px;" />
+			<h2 style="margin-top:10px;">האירוע של <span id="cname"></span></h2>
 			<div style="position: absolute;top: 50%;left: 50%;-webkit-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">
-				<a href="#" onClick="capturePhoto();"><img src="img/1b.png" alt="1" /></a> <br/>
+<br/><br/><br/>
+				<a href="#" onClick="capturePhoto();"><img src="img/1b.png" alt="1" /></a> 
 				<div id="btnSelectLocalContainer" style="margin-top:15px;">
 					<a href="#" id="btnSelectLocal"><img src="img/2b.png" alt="2" /></a>
 				</div>
-				<div id="progressSelected" style="background-color: #eee;color: #222;border-radius: 5px;margin-top: 5px;"></div><br/>
+				<div id="progressSelected" style="background-color: #eee;color: #222;border-radius: 5px;margin-top: 5px;"></div>
 				<a href="#" onClick="OpenServerImages();" style="margin-top:15px;"><img src="img/3b.png" /></a>
 				<img style="display:none;width:90px;height:120px;" id="smallImage" src="" />
 				<img style="display:none;" id="largeImage" src="" />
