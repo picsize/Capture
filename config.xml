@@ -26,7 +26,7 @@
     <preference name="disable-cursor" value="false" />
     <preference name="android-minSdkVersion" value="13" />
     <preference name="android-installLocation" value="auto" />
-	<preference name="android-windowSoftInputMode" value="stateVisible|adjustResize" />
+	<!--<preference name="android-windowSoftInputMode" value="stateVisible|adjustResize" />-->
     <preference name="SplashScreen" value="splash" />
     <preference name="SplashScreenDelay" value="3000" />
     <icon src="icon.png" />
