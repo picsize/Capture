@@ -377,7 +377,7 @@ function OpenServerImages() {
 				//--------------------------------------------------------------------
 				// 3) Update html content
 				//--------------------------------------------------------------------
-				$('#Gallery').append('<li><a href="' + data[i].imageURL + '"><img src="' + data[i].thumbURL+ '" alt="' +'" /></a></li>');
+				$('#Gallery').append('<li><a href="' + data[i].imageURL + '"><img src="' + data[i].thumbURL + '" alt="' + data[i].image_msg + '" /></a></li>');
 				//$('#output').html("<b>id: </b>"+id+"<b> url: </b>"+url); //Set output element html
 				//recommend reading up on jquery selectors they are awesome 
 				// http://api.jquery.com/category/selectors/
@@ -511,6 +511,7 @@ $(document).delegate('#local_images_page', 'pageshow', function () {
 			uploader.bind('StateChanged', function () {
 				if (uploader.files.length === (uploader.total.uploaded + uploader.total.failed)) {
 					$('form')[0].submit();
+					
 				}
 			});
 
